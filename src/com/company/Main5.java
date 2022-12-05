@@ -3,12 +3,10 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.IntStream;
 
-public class Main78 {
+public class Main5 {
 
     public static void main(String[] args) {
         System.out.println(puzzel1());

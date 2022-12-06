@@ -15,7 +15,7 @@ public class Main5 {
 
     private static String puzzel1() {
         List<LinkedList<Character>> stapels = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("input6.txt"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("input5.txt"))) {
 
             String regel;
             boolean stapelsLezen = true;
@@ -55,7 +55,7 @@ public class Main5 {
     }
     private static String puzzel2() {
         List<StringBuilder> stapels = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("input6.txt"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("input5.txt"))) {
 
             String regel;
             boolean stapelsLezen = true;

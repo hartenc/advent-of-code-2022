@@ -20,10 +20,9 @@ public class Main7 {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("input7.txt"))) {
 
             String regel;
-            MapReference currentMapRef = new MapReference(null);
+            Map currentMap = null;
             boolean listing = false;
             while ((regel = bufferedReader.readLine()) != null) {
-                Map currentMap = currentMapRef.get();
                 if (listing) {
                     if (regel.charAt(0) == '$') {
                         listing = false;
@@ -40,9 +39,9 @@ public class Main7 {
                     if (regel.startsWith("cd", 2)) {
                         String doelmap = regel.substring(5);
                         switch (doelmap) {
-                            case "/" -> currentMapRef = new MapReference(parent);
-                            case ".." -> currentMapRef = new MapReference(currentMap.parent);
-                            default -> currentMapRef = new MapReference(currentMap.mappen.stream().filter(map -> map.naam.equals(doelmap)).findFirst().get());
+                            case "/" -> currentMap = parent;
+                            case ".." -> currentMap = currentMap.parent;
+                            default -> currentMap = currentMap.mappen.stream().filter(map -> map.naam.equals(doelmap)).findFirst().get();
 
                         }
                     }
@@ -61,10 +60,9 @@ public class Main7 {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("input7.txt"))) {
 
             String regel;
-            MapReference currentMapRef = new MapReference(null);
+            Map currentMap = null;
             boolean listing = false;
             while ((regel = bufferedReader.readLine()) != null) {
-                Map currentMap = currentMapRef.get();
                 if (listing) {
                     if (regel.charAt(0) == '$') {
                         listing = false;
@@ -81,9 +79,9 @@ public class Main7 {
                     if (regel.startsWith("cd", 2)) {
                         String doelmap = regel.substring(5);
                         switch (doelmap) {
-                            case "/" -> currentMapRef = new MapReference(parent);
-                            case ".." -> currentMapRef = new MapReference(currentMap.parent);
-                            default -> currentMapRef = new MapReference(currentMap.mappen.stream().filter(map -> map.naam.equals(doelmap)).findFirst().get());
+                            case "/" -> currentMap = parent;
+                            case ".." -> currentMap = currentMap.parent;
+                            default -> currentMap = currentMap.mappen.stream().filter(map -> map.naam.equals(doelmap)).findFirst().get();
 
                         }
                     }
@@ -131,18 +129,6 @@ public class Main7 {
 
         public Long getGrootte() {
             return grootte + mappen.stream().map(Map::getGrootte).reduce(0L, Long::sum);
-        }
-    }
-
-    private static class MapReference {
-        private Map map;
-
-        public MapReference(Map map) {
-            this.map = map;
-        }
-
-        public Map get() {
-            return map;
         }
     }
 }

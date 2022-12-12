@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 public class Main12 {
 
     public static void main(String[] args) {
-//        System.out.println(Character.valueOf((char)123));
         System.out.println(puzzel1());
         System.out.println(puzzel2());
     }
